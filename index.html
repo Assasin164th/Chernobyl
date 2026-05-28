@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Чернобыль. Зона отчуждения | Культовый сериал о сталкерах</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c0a;
+            background-image: radial-gradient(circle at 10% 20%, rgba(70, 70, 40, 0.15) 1px, transparent 1px);
+            background-size: 28px 28px;
+            font-family: 'Inter', sans-serif;
+            color: #e3e6e0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Стилизация скроллбара */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1f1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c9a03d;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ШАПКА */
+        .navbar {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #c9a03d;
+            box-shadow: 0 2px 12px rgba(201, 160, 61, 0.15);
+        }
+        .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #e0bc6e;
+            background: #1e261c;
+            padding: 6px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #e6b422;
+        }
+        .logo span {
+            color: #b17e2e;
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            color: #cdd8c6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover {
+            color: #f5c542;
+            text-shadow: 0 0 5px rgba(245, 197, 66, 0.5);
+        }
+
+        /* HERO секция (Зона) */
+        .hero {
+            padding: 70px 0 60px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-badge {
+            font-family: 'Roboto Mono', monospace;
+            color: #e0b354;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(0,0,0,0.6);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            border: 1px solid #947735;
+        }
+        .hero-text h1 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 .yellow {
+            color: #f5c542;
+            text-shadow: 0 0 8px rgba(218, 165, 32, 0.6);
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #b9c9b0;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 35px;
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat-number {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: #e0b354;
+            font-family: monospace;
+        }
+        .hero-image {
+            flex: 1;
+            background: linear-gradient(145deg, #1c271f, #0e1610);
+            border-radius: 28px;
+            padding: 16px;
+            border: 1px solid #5e6e40;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.7), 0 0 0 2px rgba(201,160,61,0.2);
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            filter: grayscale(0.2) contrast(1.1);
+        }
+        .btn {
+            display: inline-block;
+            background: #2b2c1f;
+            border: 1px solid #e0b354;
+            color: #f5cf8e;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background: #c9a03d;
+            color: #0f1a0b;
+            border-color: #ffdf8c;
+            box-shadow: 0 0 14px rgba(201,160,61,0.6);
+        }
+
+        /* общие секции */
+        .section {
+            padding: 65px 0;
+            border-bottom: 1px solid rgba(201, 160, 61, 0.25);
+        }
+        .section-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+        .section-title:before {
+            content: '☢';
+            margin-right: 12px;
+            color: #c9a03d;
+            font-size: 1.8rem;
+        }
+        .about-grid {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1.5;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            background: rgba(10, 15, 8, 0.6);
+            padding: 24px;
+            border-radius: 24px;
+            border-left: 6px solid #c9a03d;
+        }
+        .about-highlight {
+            flex: 1;
+            background: #101b12;
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px dashed #b3882c;
+        }
+
+        /* персонажи (сталкеры) */
+        .characters-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+        .card {
+            background: #121d12;
+            border-radius: 24px;
+            padding: 24px 20px;
+            width: 260px;
+            transition: 0.25s ease;
+            text-align: center;
+            border-bottom: 3px solid #4a5a34;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-bottom-color: #e0b354;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+        }
+        .card-img {
+            width: 100px;
+            height: 100px;
+            background: #1e2a1a;
+            border-radius: 100%;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            filter: drop-shadow(0 0 4px #8b6b2c);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .role {
+            font-size: 0.8rem;
+            font-family: monospace;
+            color: #dbb255;
+            margin-bottom: 12px;
+        }
+
+        /* факты про Зону */
+        .facts-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .fact-item {
+            background: #0f1a0c;
+            padding: 20px;
+            border-radius: 20px;
+            transition: 0.2s;
+            border: 1px solid #33442b;
+        }
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #e6b73c;
+            font-family: monospace;
+        }
+
+        /* трейлер */
+        .trailer-box {
+            background: #080d06;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid #7a632c;
+        }
+        .trailer-box iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        /* локации Зоны */
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .loc-card {
+            background: #0e170e;
+            padding: 20px;
+            border-radius: 24px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .loc-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* цитата */
+        .quote-block {
+            background: #0c130b;
+            text-align: center;
+            padding: 45px 30px;
+            border-radius: 48px;
+            margin: 20px 0;
+            border: 1px solid #ba953b;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.6), 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .quote-text {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #87947c;
+            border-top: 1px solid #2f4228;
+        }
+        @media (max-width: 780px) {
+            .hero-text h1 { font-size: 2.3rem; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .hero { flex-direction: column; text-align: center; }
+            .hero-stats { justify-content: center; }
+            .section-title { font-size: 1.6rem; display: block; text-align: center; }
+            .section-title:before { display: none; }
+            .quote-text { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Навигация -->
+    <div class="navbar">
+        <div class="logo">⚡ ЧЕРНОБЫЛЬ.ZONE <span>| СТАЛКЕРЫ</span></div>
+        <div class="nav-links">
+            <a href="#">ЗОНА</a>
+            <a href="#about">О СЕРИАЛЕ</a>
+            <a href="#characters">ГЕРОИ</a>
+            <a href="#facts">ФАКТЫ</a>
+            <a href="#trailer">ТРЕЙЛЕР</a>
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <div class="hero">
+        <div class="hero-text">
+            <div class="hero-badge">☢️ 1986 • ПРИПЯТЬ • АНОМАЛИИ</div>
+            <h1>ЧЕРНОБЫЛЬ.<span class="yellow">ЗОНА ОТЧУЖДЕНИЯ</span></h1>
+            <p>Тайны прошлого, путешествие во времени, сталкеры и мистика. Один из самых смелых российских сериалов, который перевернул представление о Чернобыле.</p>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">5 сезонов</div><div>+ полный метр</div></div>
+                <div class="stat"><div class="stat-number">8.2 КП</div><div>Рейтинг</div></div>
+                <div class="stat"><div class="stat-number">2014–2019</div><div>Эпоха культа</div></div>
+            </div>
+            <div style="margin-top: 28px;">
+                <a href="#trailer" class="btn">▶ СМОТРЕТЬ ТРЕЙЛЕР</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://upload.wikimedia.org/wikipedia/ru/2/2e/Chernobyl_Zona_Otchuzhdeniya_poster.jpg" alt="Постер сериала Чернобыль Зона отчуждения" onerror="this.src='https://via.placeholder.com/450x560?text=Чернобыль+Зона+отчуждения'">
+        </div>
+    </div>
+
+    <!-- О СЕРИАЛЕ -->
+    <div id="about" class="section">
+        <div class="section-title">ЗОНА ПРИТЯГИВАЕТ</div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>«Чернобыль. Зона отчуждения»</strong> — культовый постапокалиптический сериал режиссёра Дмитрия Киселёва. История пятерых молодых людей: Павел, Леша, Настя, Гоша и их случайный попутчик, которые отправляются в Чернобыльскую зону, чтобы предотвратить ограбление дома, но сталкиваются с аномалиями, артефактами и путешествиями во времени.</p>
+                <p style="margin-top: 16px;">⚡ Герои будут пытаться изменить прошлое и предотвратить катастрофу. Но Зона не прощает ошибок. Мистика, триллер, экшен и глубокая драма. Сериал подарил новое дыхание жанру «сталкер» в России и обрёл армию фанатов.</p>
+                <p style="margin-top: 12px;"><strong>Интересно:</strong> Сериал снимался в реальной Зоне отчуждения — в Припяти и на Чернобыльской АЭС. Актёры работали в условиях настоящей радиационной опасности (но дозы не превышали норму).</p>
+            </div>
+            <div class="about-highlight">
+                <h3 style="color:#e0b354;">🎬 Символ Зоны</h3>
+                <p style="margin: 15px 0;">«Зона берёт своё». Главные артефакты: «Компас», «Кровь камня», «Золотой шар» (исполняющий желания).</p>
+                <hr style="border-color:#3c4a30;margin:16px 0">
+                <p>⭐ Сериал получил премию "ТЭФИ" за лучший телевизионный сериал.<br>⏱️ Финал открытой дверью породил полнометражный фильм "Чернобыль: Зона отчуждения. Финал".</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПЕРСОНАЖИ (главные сталкеры) -->
+    <div id="characters" class="section">
+        <div class="section-title">ГРУППА СТАЛКЕРОВ</div>
+        <div class="characters-grid">
+            <div class="card">
+                <div class="card-img">🧑‍🎤</div>
+                <h3>Паша</h3>
+                <div class="role">Лидер, парень из Москвы</div>
+                <p>Решительный, рисковый. Хочет вернуть свою девушку и исправить ошибки.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">🤘</div>
+                <h3>Лёша</h3>
+                <div class="role">Блогер / сталкер-экстремал</div>
+                <p>Снимает всё на камеру. Юмор и отчаянная смелость. Верит в аномалии.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">🧪</div>
+                <h3>Гоша (Игорь)</h3>
+                <div class="role">Физик-ядерщик</div>
+                <p>Умный, осторожный. Именно он понимает истинную природу аномалий.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">🕊️</div>
+                <h3>Настя</h3>
+                <div class="role">Сильная, целеустремлённая</div>
+                <p>Не даёт отчаиваться. Тайна её прошлого связана с Чернобылем.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">🔥</div>
+                <h3>Тень / Слепой</h3>
+                <div class="role">Загадочный проводник</div>
+                <p>Мистический персонаж, который знает о Зоне больше всех...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЛОКАЦИИ ЗОНЫ (атмосфера)-->
+    <div style="margin-top: -20px; margin-bottom: 20px;">
+        <div class="section-title" style="margin-bottom: 25px;">🏚️ КЛЮЧЕВЫЕ МЕСТА</div>
+        <div class="locations">
+            <div class="loc-card"><div class="loc-icon">🏭</div>Припять &nbsp;— город-призрак</div>
+            <div class="loc-card"><div class="loc-icon">⚛️</div>ЧАЭС &nbsp;4-й энергоблок</div>
+            <div class="loc-card"><div class="loc-icon">🌳</div>Рыжий лес</div>
+            <div class="loc-card"><div class="loc-icon">🔄</div>Аномалия «Мясорубка»</div>
+        </div>
+    </div>
+
+    <!-- ИНТЕРЕСНЫЕ ФАКТЫ-->
+    <div id="facts" class="section">
+        <div class="section-title">5 ЖГУЧИХ ФАКТОВ</div>
+        <div class="facts-list">
+            <div class="fact-item"><span class="fact-number">01</span> Съёмки проходили при участии настоящих сталкеров-проводников, которые показывали опасные места Зоны.</div>
+            <div class="fact-item"><span class="fact-number">02</span> Роль аномалий создавали без графики — использовали наклонные платформы, лебедки и сложные трюки.</div>
+            <div class="fact-item"><span class="fact-number">03</span> Сценарий писали 2 года, а идея временной петли родилась из-за желания показать «исправление истории».</div>
+            <div class="fact-item"><span class="fact-number">04</span> После выхода сериала реальный поток туристов в Чернобыль вырос на 300%.</div>
+            <div class="fact-item"><span class="fact-number">05</span> Сериал сравнивали с «Lost» и «Сталкером» Тарковского, но он получил уникальный российский стиль.</div>
+        </div>
+    </div>
+
+    <!-- ТРЕЙЛЕР (настоящий трейлер 1 сезона) -->
+    <div id="trailer" class="section">
+        <div class="section-title">ТРЕЙЛЕР | СМЕЛОСТЬ ПЕРЕЖИТЬ ЗОНУ</div>
+        <div class="trailer-box">
+            <iframe src="https://www.youtube.com/embed/Yc9CWkI6-3I" title="Чернобыль Зона отчуждения трейлер" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p style="margin-top: 18px; font-family: monospace;">🎥 «Когда ты в Зоне — время течёт иначе. Ты можешь спасти всех, но ценой себя».</p>
+        </div>
+    </div>
+
+    <!-- ЛЕГЕНДАРНАЯ ЦИТАТА -->
+    <div class="quote-block">
+        <div class="quote-text">«Зона — это не место. Это состояние души. Она проверяет тебя на прочность. И если ты прошёл, то уже никогда не будешь прежним».</div>
+        <div class="quote-author">— Слепой / Проводник (сериал «Чернобыль. Зона отчуждения»)</div>
+    </div>
+
+    <footer>
+        <p>☢️ Сайт посвящён культовому сериалу «Чернобыль. Зона отчуждения» (2014-2019, ТВ-3, Premier). <br>
+        Проект о Зоне, аномалиях, дружбе и времени. Не официальный ресурс. Сделан фанатами сталкер-саги.</p>
+    </footer>
+</div>
+
+<!-- Плавное появление + анимация -->
+<script>
+    const items = document.querySelectorAll('.card, .fact-item, .about-text, .loc-card, .hero-text');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0px)';
+            }
+        });
+    }, {threshold: 0.1});
+    items.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+    document.querySelector('.hero-text').style.opacity = '1';
+    document.querySelector('.hero-text').style.transform = 'translateY(0)';
+    document.querySelector('.hero-image').style.opacity = '1';
+    document.querySelector('.hero-image').style.transform = 'translateY(0)';
+</script>
+</body>
+</html>Ы
